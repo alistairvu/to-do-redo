@@ -1,4 +1,5 @@
 import { ToDoInput } from "./ToDoInput"
 import { ToDoList } from "./ToDoList"
+import { ToDoHeader } from "./ToDoHeader"
 
-export { ToDoInput, ToDoList }
+export { ToDoHeader, ToDoInput, ToDoList }

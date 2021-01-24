@@ -1,3 +1,4 @@
+import { StatusBar } from "expo-status-bar"
 import React from "react"
 import { ImageBackground, StyleSheet } from "react-native"
 import { RecoilRoot } from "recoil"
@@ -6,6 +7,7 @@ import { Main } from "./screens"
 const App = () => {
   return (
     <RecoilRoot>
+      <StatusBar style="light" />
       <ImageBackground
         source={require("./assets/federico-bottos-eYKkriMEG50-unsplash.jpg")}
         style={styles.backgroundImage}

@@ -9,7 +9,7 @@ import {
 import { useRecoilState, useSetRecoilState } from "recoil"
 import { toDoState, idTracker } from "../recoil/atoms"
 import { Ionicons } from "@expo/vector-icons"
-import { storeData } from "../asyncStorage"
+import { storeData, storeId } from "../asyncStorage"
 
 export const ToDoInput = () => {
   const setToDos = useSetRecoilState(toDoState)
@@ -24,7 +24,10 @@ export const ToDoInput = () => {
         content: content.trim(),
         done: false,
       }
-      setId((prev) => prev + 1)
+      setId((prev) => {
+        storeId(prev + 1)
+        return prev + 1
+      })
       setToDos((prev) => {
         storeData([...prev, newItem])
         return [...prev, newItem]
@@ -65,5 +68,6 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 20,
     flex: 7,
+    paddingRight: 10,
   },
 })

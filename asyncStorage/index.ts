@@ -17,3 +17,21 @@ export const getData = async () => {
     // error reading value
   }
 }
+
+export const storeId = async (value: any) => {
+  try {
+    const jsonValue = JSON.stringify(value)
+    await AsyncStorage.setItem("id", jsonValue)
+  } catch (e) {
+    // saving error
+  }
+}
+
+export const getId = async () => {
+  try {
+    const jsonValue = await AsyncStorage.getItem("id")
+    return jsonValue != null ? JSON.parse(jsonValue) : null
+  } catch (e) {
+    // error reading value
+  }
+}
